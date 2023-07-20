@@ -4,7 +4,10 @@
     </head>
     <body>
         <h1>Welcome to Login Page</h1>
-        <h2>${name}</h2>
-        <h2>${pass}</h2>
+        <form method = "post">
+               Name: <input type="text" name = "name">
+               Password: <input type="password" name = "pass">
+               <input type="submit">
+        </form>
     </body>
 </html>
