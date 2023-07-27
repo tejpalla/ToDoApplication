@@ -1,6 +1,5 @@
-package com.example.springboot.myfirstwebapp.login;
+package com.in28minutes.springboot.myfirstwebapp.login;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("name")
 public class LoginController {
-	
-    @Autowired
+
 	private AuthenticationService authenticationService;
 	
 	public LoginController(AuthenticationService authenticationService) {
@@ -28,9 +26,9 @@ public class LoginController {
 	@RequestMapping(value="login",method = RequestMethod.POST)
 	//login?name=Ranga RequestParam
 	public String gotoWelcomePage(@RequestParam String name, 
-			@RequestParam String pass, ModelMap model) {
+			@RequestParam String password, ModelMap model) {
 		
-		if(authenticationService.authenticate(name, pass)) {
+		if(authenticationService.authenticate(name, password)) {
 		
 			model.put("name", name);
 			//Authentication 
@@ -40,7 +38,7 @@ public class LoginController {
 			return "welcome";
 		}
 		
+		model.put("errorMessage", "Invalid Credentials! Please try again.");
 		return "login";
 	}
 }
-// @RequestParam String name,@RequestParam String pass, ModelMap model

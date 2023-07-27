@@ -1,12 +1,9 @@
-<html>
-    <head>
-        <title>
-            Welcome to ToDo app
-        </title>
-    </head>
-        <body>
-            <h1>Welcome to the TODO Application</h1>
-            your name is ${name}
-            <a href = todo-list>manage</a>your todos
-        </body>
-</html>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>	
+
+<div class="container">
+	<h1>Welcome ${name}</h1>
+	<a href="list-todos">Manage</a> your todos
+</div>
+
+<%@ include file="common/footer.jspf" %>
